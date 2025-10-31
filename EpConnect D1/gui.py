@@ -3,6 +3,8 @@ from tkinter import messagebox
 import serial.tools.list_ports
 from products_page import ProductsPage
 from firmware_page import FirmwarePage
+from operation_settings_page import OperationSettingsPage
+from motor_settings_page import MotorSettingsPage
 
 # Set appearance mode and color theme
 ctk.set_appearance_mode("light")
@@ -178,6 +180,10 @@ class ePropelledDashboard(ctk.CTk):
             self.load_products_page()
         elif page_name == "Firmware":
             self.load_firmware_page()
+        elif page_name == "Operation Settings":
+            self.load_operation_settings_page()
+        elif page_name == "Motor Settings":
+            self.load_motor_settings_page()
         else:
             # Placeholder for other pages
             placeholder = ctk.CTkLabel(
@@ -206,6 +212,14 @@ class ePropelledDashboard(ctk.CTk):
     def load_firmware_page(self):
         """Load Firmware page content"""
         FirmwarePage(self.scroll_frame)
+    
+    def load_operation_settings_page(self):
+        """Load Operation Settings page content"""
+        OperationSettingsPage(self.scroll_frame)
+    
+    def load_motor_settings_page(self):
+        """Load Motor Settings page content"""
+        MotorSettingsPage(self.scroll_frame)
 
     def create_main_content(self):
         """Create the main content area"""
